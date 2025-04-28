@@ -1,35 +1,28 @@
 # Data to Report Agents
 
-A CrewAI-powered application that automates project planning and reporting by analyzing Trello board data. This application uses a crew of AI agents to collect data from Trello, analyze it, and generate comprehensive project reports.
+A CrewAI-powered application that automates sprint reporting by analyzing Trello board data. This application uses a crew of AI agents to collect data from Trello, analyze it, and generate comprehensive sprint reports.
 
 ## 🤖 Agents
 
-The application uses three specialized agents, each with a specific role in the data-to-report pipeline:
+The application uses two specialized agents, each with a specific role in the data-to-report pipeline:
 
-### 1. Project Planning Agent
-- **Role**: The Ultimate Project Planner
-- **Goal**: Meticulously break down projects into actionable tasks
+### 1. Data Collection Agent
+- **Role**: Data Collection Specialist
+- **Goal**: Gather all relevant data from the Trello board
 - **Tools**: BoardDataFetcherTool, CardDataFetcherTool
 - **Responsibilities**: 
   - Collect data from Trello boards
-  - Organize tasks and identify dependencies
-  - Create structured project plans
+  - Create an initial understanding of the project
+  - Identify main features and team members
 
-### 2. Estimation Agent
-- **Role**: Expert Estimation Analyst
-- **Goal**: Provide accurate time, resource, and effort estimations
+### 2. Analysis Agent
+- **Role**: Project Analysis Expert
+- **Goal**: Analyze the collected data to identify blockers, delays, and overall progress
 - **Responsibilities**:
-  - Analyze task complexity
-  - Estimate required resources
-  - Identify potential risks and uncertainties
-
-### 3. Resource Allocation Agent
-- **Role**: Resource Allocation Strategist
-- **Goal**: Optimize task allocation based on skills and workload
-- **Responsibilities**:
-  - Match tasks to team members
-  - Balance workload distribution
-  - Create resource allocation charts
+  - Identify blockers and delays
+  - Assess overall project progress
+  - Spot issues that may affect project timelines
+  - Generate comprehensive sprint reports
 
 ## 🛠️ Custom Tools
 
@@ -48,21 +41,22 @@ The application includes custom tools for interacting with Trello:
 
 The workflow is divided into three sequential tasks:
 
-### 1. Task Breakdown
-- Analyzes project requirements
-- Breaks down the project into individual tasks
-- Defines scope, timelines, and dependencies
-- Outputs a comprehensive list of tasks with visualizations
+### 1. Data Collection
+- Creates an initial understanding of the project
+- Gathers information about main features and team members
+- Uses Trello Data Fetcher tool to collect board data
+- Outputs a comprehensive report on the project
 
-### 2. Time & Resource Estimation
-- Evaluates each task for time and resource requirements
-- Uses historical data and complexity analysis
-- Outputs detailed estimation reports with risk assessments
+### 2. Data Analysis
+- Analyzes the Trello data to identify blockers, delays, and progress
+- Evaluates the current state of the project
+- Outputs a summary highlighting key issues and progress
 
-### 3. Resource Allocation
-- Strategically assigns tasks to team members
-- Balances workload and matches skills to requirements
-- Outputs allocation charts with rationale for decisions
+### 3. Report Generation
+- Compiles a comprehensive sprint report based on the analysis
+- Includes sprint overview, task summary, identified issues
+- Covers progress, delays, team performance, and recommendations
+- Outputs a detailed sprint report in markdown format
 
 ## 🚀 Getting Started
 
@@ -105,17 +99,19 @@ python main.py
 
 ## 📊 Example Output
 
-The application generates a comprehensive report that includes:
-- Detailed task breakdown with descriptions and timelines
-- Resource estimation for each task
-- Resource allocation chart showing team member assignments
-- Risk assessment and project timeline visualization
+The application generates a comprehensive sprint report that includes:
+- Sprint Overview
+- Task Summary
+- Identified Issues and Blockers
+- Progress and Delays
+- Team Performance Overview
+- Action Items and Recommendations
 
 ## 🔄 Workflow
 
-1. The Project Planning Agent collects data from Trello using the custom tools
-2. The collected data is passed to the Estimation Agent for analysis
-3. The Resource Allocation Agent creates the final report with task assignments
+1. The Data Collection Agent gathers project information from Trello
+2. The Analysis Agent processes this data to identify issues and progress
+3. The Analysis Agent also generates the final sprint report
 4. The complete report is returned as the crew's output
 
 ## 📝 Configuration
